@@ -1,0 +1,44 @@
+.Link {
+  text-decoration: none;
+}
+.Card {
+  width: 300px;
+  max-width: 100%;
+  border: lightgrey solid 1px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  text-decoration: none;
+  .overview {
+    max-height: 60px;
+    overflow: hidden;
+  }
+  .title {
+    max-height: 20px;
+    overflow: hidden;
+    line-clamp: 1;
+    text-overflow: ellipsis;
+  }
+  img {
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .LikeButton {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: white;
+    opacity: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      opacity: 75%;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.SearchPage {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+
+  .TextInput {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: lightgrey solid 1px;
+    padding: 5px;
+
+    .SearchBar {
+      all: unset;
+      width: 100%;
+    }
+
+    .SearchIcon {
+      height: 100%;
+    }
+  }
+}
