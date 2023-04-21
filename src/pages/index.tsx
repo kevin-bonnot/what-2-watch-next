@@ -1,8 +1,7 @@
-import { Inter } from 'next/font/google'
 import {useState} from "react";
 import {useFetch} from "@/hooks/useFetch";
 import {AiOutlineSearch} from "react-icons/ai";
-import CardContainer from "@/pages/components/CardContainer";
+import CardContainer from "@/components/CardContainer";
 import styles from '@/styles/Home.module.scss';
 export default function Home() {
   const [url, setUrl] = useState<string>(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`);
@@ -11,11 +10,11 @@ export default function Home() {
 
   const handleChangeSearch = (event: any) => {
     if (event.target.value === '') {
-      setUrl(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`)
+      setUrl(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`);
     } else  {
       setUrl(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${event.target.value}&language=fr-FR&page=1&include_adult=false`);
     }
-  }
+  };
 
   if (error) {
     return <div>Error</div>;
