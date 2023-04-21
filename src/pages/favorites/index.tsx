@@ -1,5 +1,11 @@
+import {useAppSelector} from '@/utils/hooks';
+import CardContainer from '@/components/CardContainer';
+
 const Favorites = () => {
-  return <h1>Favorites</h1>;
+  const favorites = useAppSelector((state) => state.favorites.value);
+  return <div className="Page FavoritePage">
+    <CardContainer movies={favorites} />
+  </div>;
 };
 
 export default Favorites;

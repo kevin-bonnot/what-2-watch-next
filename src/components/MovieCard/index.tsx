@@ -1,10 +1,10 @@
-import Movie, {movieEquals} from "@/models/Movie";
-import {useAppDispatch, useAppSelector} from "@/utils/hooks";
-import {addOrRemoveFavorite} from "@/utils/reducers/favorites/favoritesSlice";
-import Link from "next/link";
-import {AiFillHeart, AiOutlineHeart} from "react-icons/ai";
+import Movie, {movieEquals} from '@/models/Movie';
+import {useAppDispatch, useAppSelector} from '@/utils/hooks';
+import {addOrRemoveFavorite} from '@/utils/reducers/favorites/favoritesSlice';
+import Link from 'next/link';
+import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai';
 import styles from '@/styles/MovieCard.module.scss';
-import Image from "next/image";
+import Image from 'next/image';
 
 type CardProps = {
     movie: Movie,

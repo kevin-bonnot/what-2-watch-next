@@ -1,5 +1,5 @@
-import Movie from "@/models/Movie";
-import MovieCard from "@/components/MovieCard";
+import Movie from '@/models/Movie';
+import MovieCard from '@/components/MovieCard';
 import styles from '@/styles/CardContainer.module.scss';
 
 interface CardContainerProps {

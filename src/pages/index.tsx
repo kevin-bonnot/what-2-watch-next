@@ -1,7 +1,7 @@
-import {useState} from "react";
-import {useFetch} from "@/hooks/useFetch";
-import {AiOutlineSearch} from "react-icons/ai";
-import CardContainer from "@/components/CardContainer";
+import {useState} from 'react';
+import {useFetch} from '@/hooks/useFetch';
+import {AiOutlineSearch} from 'react-icons/ai';
+import CardContainer from '@/components/CardContainer';
 import styles from '@/styles/Home.module.scss';
 export default function Home() {
   const [url, setUrl] = useState<string>(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`);

@@ -1,6 +1,6 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {RootState} from "../../store";
-import Movie, {movieEquals} from "@/models/Movie";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RootState} from '../../store';
+import Movie, {movieEquals} from '@/models/Movie';
 
 interface FavoritesState {
   value: Movie[];
