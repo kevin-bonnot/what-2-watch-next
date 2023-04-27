@@ -18,7 +18,7 @@ export const useFetch = <T>(url: string) => {
         setData(json);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
         setError(true);
       })
       .finally(() => {
