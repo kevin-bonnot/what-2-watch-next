@@ -1,0 +1,52 @@
+.DetailsImage {
+  max-width: 100%;
+}
+
+.DetailsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Rating {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  // opacity: 50%;
+}
+
+.RatingVeryHigh {
+  background-color: green;
+}
+
+.RatingHigh {
+  background-color: lightgreen;
+}
+
+.RatingMiddle {
+  background-color: yellow;
+}
+
+.RatingLow {
+  background-color: orange;
+}
+
+.RatingVeryLow {
+  background-color: red;
+}
+
+.BadgeContainer {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 16px 16px;
+  .Badge {
+    background-color: #032541;
+    color: white;
+    border-radius: 50px;
+    padding: 4px 8px 4px 8px;
+  }
+}

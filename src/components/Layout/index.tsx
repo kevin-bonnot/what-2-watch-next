@@ -2,7 +2,7 @@ import {useAppSelector} from '@/utils/hooks';
 import Link from 'next/link';
 import styles from '@/styles/Layout.module.scss';
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: any) => {
   const favorites = useAppSelector((state) => state.favorites.value);
 
   return <>
