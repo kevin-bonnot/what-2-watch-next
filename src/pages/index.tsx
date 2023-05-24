@@ -25,6 +25,15 @@ export default function Home() {
       <input type="text" className={styles.SearchBar} onChange={handleChangeSearch} />
       <AiOutlineSearch size={25} className={styles.SearchIcon} />
     </div>
-    {loading ? <div>Chargement...</div> : <CardContainer movies={data.results} />}
+    {loading ? <div>Chargement...</div> : <div className={styles.MainContainer}>
+      <div className={styles.LastRelease}>
+        <h2>Dernières sorties</h2>
+        <CardContainer movies={data.results} />
+      </div>
+      <div className={styles.Popular}>
+        <h2>Populaires</h2>
+        <CardContainer movies={data.results} />
+      </div>
+    </div>}
   </div>;
 }
