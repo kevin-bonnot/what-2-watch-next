@@ -35,11 +35,11 @@ export default function Home() {
       <AiOutlineSearch size={25} className={styles.SearchIcon} />
     </div>
     <div className={styles.MainContainer}>
-      <div className={styles.LastRelease}>
+      <div className={styles.TVShows}>
         <h2>Séries</h2>
         {fetchTV.loading ? <p>Chargement ...</p> : <CardContainer movies={dbToShows(fetchTV.data.results)}/>}
       </div>
-      <div className={styles.Popular}>
+      <div className={styles.Movies}>
         <h2>Films</h2>
         {fetchMovie.loading ? <p>Chargement ...</p> : <CardContainer movies={moviesToShows(fetchMovie.data.results)}/>}
       </div>
