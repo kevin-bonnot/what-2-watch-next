@@ -1,9 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../../store';
-import Movie, {movieEquals} from '@/models/Movie';
+import Show, {movieEquals} from '@/models/Show';
 
 interface FavoritesState {
-  value: Movie[];
+  value: Show[];
 }
 
 export const favoritesSlice = createSlice({
@@ -12,7 +12,7 @@ export const favoritesSlice = createSlice({
     value: []
   } as FavoritesState,
   reducers: {
-    addOrRemoveFavorite: (state, action: PayloadAction<Movie>) => {
+    addOrRemoveFavorite: (state, action: PayloadAction<Show>) => {
       const index = state.value.findIndex(movie => movieEquals(movie, action.payload));
       console.log(index);
       if (index >= 0) {
