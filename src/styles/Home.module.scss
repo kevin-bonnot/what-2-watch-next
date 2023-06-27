@@ -20,3 +20,14 @@
     }
   }
 }
+
+.MainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  .LastRelease {
+    max-width: 50%;
+  }
+  .Popular {
+    max-width: 50%;
+  }
+}

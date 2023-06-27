@@ -3,20 +3,29 @@ import {useFetch} from '@/hooks/useFetch';
 import {AiOutlineSearch} from 'react-icons/ai';
 import CardContainer from '@/components/CardContainer';
 import styles from '@/styles/Home.module.scss';
+import {dbToShows} from '@/models/TVShow';
+import {moviesToShows} from '@/models/Show';
 export default function Home() {
-  const [url, setUrl] = useState<string>(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`);
+  const initialMovieURL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`;
+  const initialTvURL = `https://api.themoviedb.org/3/trending/tv/week?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`;
 
-  const {data, loading, error} = useFetch<any>(url);
+  const [movieURL, setMovieURL] = useState<string>(initialMovieURL);
+  const [tvURL, setTvURL] = useState<string>(initialTvURL);
+
+  const fetchMovie = useFetch<any>(movieURL);
+  const fetchTV = useFetch<any>(tvURL);
 
   const handleChangeSearch = (event: any) => {
     if (event.target.value === '') {
-      setUrl(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=fr-FR&page=1`);
+      setMovieURL(initialMovieURL);
+      setTvURL(initialTvURL);
     } else  {
-      setUrl(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${event.target.value}&language=fr-FR&page=1&include_adult=false`);
+      setMovieURL(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${event.target.value}&language=fr-FR&page=1&include_adult=false`);
+      setTvURL(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${event.target.value}&language=fr-FR&page=1&include_adult=false`);
     }
   };
 
-  if (error) {
+  if (fetchMovie.error) {
     return <div>Error</div>;
   }
 
@@ -25,6 +34,15 @@ export default function Home() {
       <input type="text" className={styles.SearchBar} onChange={handleChangeSearch} />
       <AiOutlineSearch size={25} className={styles.SearchIcon} />
     </div>
-    {loading ? <div>Chargement...</div> : <CardContainer movies={data.results} />}
+    <div className={styles.MainContainer}>
+      <div className={styles.LastRelease}>
+        <h2>Séries</h2>
+        {fetchTV.loading ? <p>Chargement ...</p> : <CardContainer movies={dbToShows(fetchTV.data.results)}/>}
+      </div>
+      <div className={styles.Popular}>
+        <h2>Films</h2>
+        {fetchMovie.loading ? <p>Chargement ...</p> : <CardContainer movies={moviesToShows(fetchMovie.data.results)}/>}
+      </div>
+    </div>
   </div>;
 }

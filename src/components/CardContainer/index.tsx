@@ -1,14 +1,14 @@
-import Movie from '@/models/Movie';
+import Show from '@/models/Show';
 import MovieCard from '@/components/MovieCard';
 import styles from '@/styles/CardContainer.module.scss';
 
 interface CardContainerProps {
-    movies: Movie[];
+    movies: Show[];
 }
 
 const CardContainer = ({movies}: CardContainerProps) => {
   return <div className={styles.CardContainer}>
-    {movies.map((movie) => <MovieCard key={movie.title + movie.id} movie={movie} />)}
+    {movies.map((movie) => <MovieCard key={movie.title + movie.id} show={movie} />)}
   </div>;
 };
 

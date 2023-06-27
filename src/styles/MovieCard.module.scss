@@ -19,6 +19,7 @@
     overflow: hidden;
     line-clamp: 1;
     text-overflow: ellipsis;
+    font-weight: bold;
   }
   .Image {
     overflow: hidden;
@@ -42,5 +43,9 @@
     &:hover {
       opacity: 75%;
     }
+  }
+
+  .CardInfo {
+    padding: 0 8px 0 8px;
   }
 }
