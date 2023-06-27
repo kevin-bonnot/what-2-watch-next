@@ -25,9 +25,11 @@ const MovieCard = ({movie}: CardProps) => {
     <Link href={`/movies/${movie.id}`} key={movie.id} className={styles.Link}>
       <div className={styles.Card}>
         <Image className={styles.Image} width={500} height={500} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title + '-poster'}/>
-        <p className={styles.title}>{movie.title}</p>
-        <p className={styles.overview}>{movie.overview}</p>
-        <p>{movie.release_date}</p>
+        <div className={styles.CardInfo}>
+          <p className={styles.title}>{movie.title}</p>
+          <p className={styles.overview}>{movie.overview}</p>
+          <p>{movie.release_date}</p>
+        </div>
         <div className={styles.LikeButton} onClick={clickLike}>{favorite ? <AiFillHeart color='red' /> : <AiOutlineHeart />}</div>
       </div>
     </Link>

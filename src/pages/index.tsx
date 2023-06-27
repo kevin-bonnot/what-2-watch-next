@@ -27,11 +27,11 @@ export default function Home() {
     </div>
     {loading ? <div>Chargement...</div> : <div className={styles.MainContainer}>
       <div className={styles.LastRelease}>
-        <h2>Dernières sorties</h2>
+        <h2>Séries</h2>
         <CardContainer movies={data.results} />
       </div>
       <div className={styles.Popular}>
-        <h2>Populaires</h2>
+        <h2>Films</h2>
         <CardContainer movies={data.results} />
       </div>
     </div>}
